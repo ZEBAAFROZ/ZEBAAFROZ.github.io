@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zeba Afroz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #1b2a4a;
+      --teal: #2a7c6f;
+      --teal-light: #3a9e8f;
+      --accent: #e07b39;
+      --text: #2d2d2d;
+      --muted: #666;
+      --light: #f5f6f8;
+      --border: #e0e4ea;
+      --white: #ffffff;
+      --sidebar-w: 260px;
+    }
+
+
+
+
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: var(--sidebar-w);
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 0;
+      z-index: 100;
+      overflow-y: auto;
+    }
+
+    .sidebar-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1.5rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .profile-avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--teal-light);
+      background: linear-gradient(135deg, #2a7c6f 0%, #1b5e52 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 2.4rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+
+    .sidebar-name {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-align: center;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 0.3rem;
+    }
+
+    .sidebar-role {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      line-height: 1.6;
+    }
+    .sidebar-role a { color: var(--teal-light); text-decoration: none; }
+    .sidebar-role a:hover { text-decoration: underline; }
+
+    .sidebar-nav { padding: 1.5rem 0; flex: 1; }
+    .sidebar-nav ul { list-style: none; }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 0.65rem 1.8rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: all 0.18s;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.07);
+      border-left-color: var(--teal-light);
+    }
+
+    .sidebar-social {
+      padding: 1.2rem 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.38rem 0.7rem;
+      font-size: 0.71rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.18s;
+      letter-spacing: 0.04em;
+    }
+    .social-btn:hover {
+      color: #fff;
+      border-color: var(--teal-light);
+      background: rgba(42,124,111,0.25);
+    }
+
+    /* ── MAIN ── */
+    .main { margin-left: var(--sidebar-w); flex: 1; min-height: 100vh; }
+
+    .page {
+      display: none;
+      padding: 3.5rem 4rem;
+      max-width: 860px;
+      animation: fadeIn 0.3s ease;
+    }
+    .page.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── ABOUT ── */
+    .about-header { margin-bottom: 2.2rem; }
+
+    .about-header h1 {
+      font-family: 'Lora', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .about-header .subtitle {
+      font-size: 0.97rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .about-header .subtitle a { color: var(--teal); text-decoration: none; font-weight: 500; }
+    .about-header .subtitle a:hover { text-decoration: underline; }
+
+    .about-body {
+      font-size: 0.96rem;
+      line-height: 1.88;
+      color: #333;
+      font-weight: 300;
+    }
+    .about-body p + p { margin-top: 1rem; }
+    .about-body a { color: var(--teal); text-decoration: none; font-weight: 500; }
+    .about-body a:hover { text-decoration: underline; }
+    .about-body strong { font-weight: 600; color: var(--text); }
+
+    .news-section { margin-top: 2.8rem; }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .news-list { list-style: none; }
+    .news-list li {
+      display: flex;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.87rem;
+      line-height: 1.6;
+    }
+    .news-list li:last-child { border-bottom: none; }
+
+    .news-date {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.73rem;
+      color: var(--muted);
+      min-width: 75px;
+      padding-top: 0.1rem;
+    }
+    .news-text { color: var(--text); font-weight: 300; }
+    .news-text a { color: var(--teal); text-decoration: none; }
+    .news-text a:hover { text-decoration: underline; }
+
+    .badge {
+      display: inline-block;
+      padding: 0.09rem 0.48rem;
+      font-size: 0.67rem;
+      font-weight: 600;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 0.3rem;
+    }
+    .badge-pub   { background: #e8f4f1; color: var(--teal); }
+    .badge-award { background: #fef3e8; color: var(--accent); }
+
+    /* ── PUBLICATIONS ── */
+    .page-title {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .page-subtitle {
+      font-size: 0.87rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .page-subtitle a { color: var(--teal); text-decoration: none; }
+    .page-subtitle a:hover { text-decoration: underline; }
+
+    .year-group { margin-bottom: 2.5rem; }
+
+    .year-heading {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .pub-item {
+      display: flex;
+      gap: 1.3rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-num {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      min-width: 20px;
+      padding-top: 0.2rem;
+    }
+
+    .pub-content { flex: 1; }
+
+    .pub-title-text {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.45;
+      margin-bottom: 0.28rem;
+    }
+
+    .pub-authors-text {
+      font-size: 0.84rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0.22rem;
+    }
+    .pub-authors-text em { font-style: italic; color: var(--text); font-weight: 500; }
+
+    .pub-venue-text {
+      font-size: 0.82rem;
+      color: var(--teal);
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 0.55rem;
+    }
+
+    .pub-abstract-text {
+      font-size: 0.82rem;
+      color: #555;
+      font-weight: 300;
+      line-height: 1.72;
+      margin-bottom: 0.6rem;
+    }
+
+    .pub-links { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+
+    .pub-link-btn {
+      display: inline-block;
+      padding: 0.18rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      border-radius: 2px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid;
+      transition: all 0.15s;
+    }
+    .btn-arxiv { color: var(--accent); border-color: var(--accent); }
+    .btn-arxiv:hover { background: var(--accent); color: #fff; }
+    .btn-paper { color: var(--teal); border-color: var(--teal); }
+    .btn-paper:hover { background: var(--teal); color: #fff; }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1.2rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-date {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.73rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+      line-height: 1.5;
+    }
+
+    .exp-role {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+      line-height: 1.4;
+    }
+
+    .exp-org {
+      font-size: 0.86rem;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .exp-section-heading {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin: 2rem 0 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .exp-section-heading:first-child { margin-top: 0; }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      display: flex;
+      gap: 1.4rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .edu-item:last-child { border-bottom: none; }
+
+    .edu-icon {
+      width: 44px; height: 44px;
+      background: var(--light);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .edu-degree-name { font-size: 0.96rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+    .edu-school-name { font-size: 0.87rem; color: var(--teal); font-weight: 500; margin-bottom: 0.15rem; }
+    .edu-year-text { font-family: 'Source Code Pro', monospace; font-size: 0.74rem; color: var(--muted); }
+    .edu-desc { font-size: 0.83rem; color: #555; font-weight: 300; margin-top: 0.35rem; line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    .contact-intro {
+      font-size: 0.96rem;
+      line-height: 1.88;
+      color: #333;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+    .contact-intro a { color: var(--teal); text-decoration: none; font-weight: 500; }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.18s;
+    }
+    .contact-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(42,124,111,0.1);
+    }
+    .contact-card-icon { font-size: 1.4rem; }
+    .contact-card-label { font-size: 0.8rem; font-weight: 600; color: var(--navy); }
+    .contact-card-sub { font-size: 0.72rem; color: var(--muted); }
+
+    /* ── PAGE FOOTER ── */
+    .page-footer {
+      margin-top: 4rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.77rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; }
+      .page { padding: 2rem 1.4rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-profile">
+      <div class="profile-avatar">ZA</div>
+      <div class="sidebar-name">Zeba Afroz</div>
+      <div class="sidebar-role">
+        Research Scholar<br/>
+        <a href="https://flamelab.iiitd.edu.in/" target="_blank">FLaMe Lab, IIIT-Delhi</a>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="#" class="active" data-page="about">About</a></li>
+        <li><a href="#" data-page="publications">Publications</a></li>
+        <li><a href="#" data-page="experience">Experience</a></li>
+        <li><a href="#" data-page="education">Education</a></li>
+        <li><a href="#" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/zeba-afroz-676390186/" class="social-btn" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=GfklhrYAAAAJ&hl=en" class="social-btn" target="_blank">Google Scholar</a>
+      <a href="https://flamelab.iiitd.edu.in/" class="social-btn" target="_blank">FLaMe Lab</a>
+
+      <a href="https://github.com/ZEBAAFROZ" class="social-btn" target="_blank">GitHub</a>
+
+
+
+
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- ── ABOUT ── -->
+    <section class="page active" id="page-about">
+      <div class="about-header">
+        <h1>ZEBA AFROZ</h1>
+        <div class="subtitle">
+          Research Scholar &nbsp;|&nbsp;
+          <a href="https://flamelab.iiitd.edu.in/" target="_blank">FLaMe Lab, IIIT-Delhi</a>
+        </div>
+      </div>
+
+      <div class="about-body">
+        <p>
+          Hello! I am Zeba Afroz, a Research Scholar at the
+          <a href="https://flamelab.iiitd.edu.in/" target="_blank">FLaMe Research Lab</a>
+          at <a href="https://www.iiitd.ac.in/" target="_blank">IIIT-Delhi, India</a>,
+          supervised by <a href="https://faculty.iiitd.ac.in/~shad.akhtar/" target="_blank">Dr. Md. Shad Akhtar</a>.
+          My research lies at the intersection of <strong>Natural Language Processing (NLP)</strong>,
+          computational journalism, and social computing.
+        </p>
+        <p>
+          My work focuses on understanding how language is used to shape narratives — whether through
+          ideological framing in news media, incongruences in eyewitness accounts, or figurative
+          expression in online content. I am particularly interested in building robust AI systems
+          that can reason about <strong>bias, deception, and narrative intent</strong> in real-world text.
+        </p>
+        <p>
+          I completed my M.Tech. from
+          <a href="https://jcboseust.ac.in/" target="_blank">J.C. Bose University of Science and Technology, YMCA</a>
+          and my B.Tech. from
+          <a href="https://ptu.ac.in/" target="_blank">Punjab Technical University</a>.
+          I describe myself as a self-motivated, positive, and result-oriented individual who enjoys
+          tackling hard, meaningful problems.
+        </p>
+        <p>
+          Thank you for visiting my website! I am always open to collaborations in the areas of NLP and 
+          computational social science. Feel free to reach out if you'd like to
+          discuss research ideas or potential collaborations.
+        </p>
+      </div>
+
+      <div class="news-section">
+        <h2 class="section-title">News</h2>
+        <ul class="news-list">
+          <li>
+            <span class="news-date">2026</span>
+            <span class="news-text">
+              <span class="badge badge-pub">Paper</span>
+              Our paper 
+              <a href="https://arxiv.org/abs/2512.03582" target="_blank">
+                <em>Fine-grained Narrative Classification in Biased News Articles</em>
+              </a>
+              has been accepted at <strong>LREC 2026</strong>.
+            </span>
+          </li>
+          <li>
+            <span class="news-date">2025</span>
+            <span class="news-text">
+              <span class="badge badge-pub">Preprint</span>
+              New preprint on
+              <a href="https://arxiv.org/abs/2502.05650" target="_blank">
+                <em>Incongruence Identification in Eyewitness Testimony</em>
+              </a>
+              now available on arXiv.
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="page-footer">
+        © 2025 Zeba Afroz &nbsp;·&nbsp; FLaMe Research Lab, IIIT-Delhi
+      </div>
+    </section>
+
+    <!-- ── PUBLICATIONS ── -->
+    <section class="page" id="page-publications">
+      <h1 class="page-title">Publications</h1>
+      <p class="page-subtitle">
+        See full list on
+        <a href="https://arxiv.org/search/?searchtype=author&query=Zeba+Afroz" target="_blank">arXiv</a>.
+      </p>
+
+      <div class="year-group">
+        <h2 class="year-heading">2025</h2>
+
+        <div class="pub-item">
+          <div class="pub-num">1.</div>
+          <div class="pub-content">
+            <div class="pub-title-text">Fine-grained Narrative Classification in Biased News Articles</div>
+            <div class="pub-authors-text">
+              <em>Zeba Afroz</em>, Harsh Vardhan, Pawan Bhakuni, Aanchal Punia, Rajdeep Kumar, Md. Shad Akhtar
+            </div>
+            <div class="pub-venue-text">LREC 2026</div>
+            <div class="pub-abstract-text">
+              Proposes a novel fine-grained narrative classification framework for biased news articles,
+              with article-bias classification as a precursor task alongside fine-grained persuasive
+              technique identification. Introduces <em>INDI-PROP</em> — the first ideologically grounded
+              fine-grained narrative dataset with multi-level annotation for propaganda in Indian news,
+              covering 1,266 articles across two polarizing socio-political events (CAA and the Farmers'
+              protest), annotated at three hierarchical levels.
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2512.03582" class="pub-link-btn btn-arxiv" target="_blank">arXiv</a>
+              <a href="https://arxiv.org/abs/2512.03582" class="pub-link-btn btn-paper" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">2.</div>
+          <div class="pub-content">
+            <div class="pub-title-text">Incongruence Identification in Eyewitness Testimony</div>
+            <div class="pub-authors-text">
+              Akshara Nair, <em>Zeba Afroz</em>, Md. Shad Akhtar
+            </div>
+            <div class="pub-venue-text">arXiv Preprint, 2025</div>
+            <div class="pub-abstract-text">
+              Introduces a novel computational task of detecting incongruences between eyewitness
+              testimonies. Given Q&amp;A exchange pairs from two subjects, the system identifies
+              contextually related inconsistencies and marks their spans. Introduces <em>MIND</em>
+              (MultI-EyewitNess Deception) — a dataset of 2,927 contextually related answer pairs —
+              and the <em>INTEND</em> framework, grounded in investigative 6W and multi-hop reasoning.
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2502.05650" class="pub-link-btn btn-arxiv" target="_blank">arXiv</a>
+              <a href="https://arxiv.org/abs/2502.05650" class="pub-link-btn btn-paper" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="page-footer">
+        © 2025 Zeba Afroz &nbsp;·&nbsp; FLaMe Research Lab, IIIT-Delhi
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE ── -->
+    <section class="page" id="page-experience">
+      <h1 class="page-title">Experience</h1>
+      <!-- <p class="page-subtitle">Research, academic, and professional roles.</p> -->
+
+
+
+
+
+
+
+      <h3 class="exp-section-heading">Research</h3>
+
+      <div class="exp-item">
+        <div class="exp-date">Sep 2024 – Present</div>
+        <div>
+          <div class="exp-role">Research Scholar (Ph.D.)</div>
+          <div class="exp-org">FLaMe Research Lab, IIIT-Delhi</div>
+          <!-- <div class="exp-desc">
+            Conducting doctoral research in NLP under Dr. Md. Shad Akhtar. Focus areas include
+            fine-grained narrative classification, deception detection in testimonies, and bias
+            analysis in news media. Introduced the INDI-PROP dataset and the INTEND framework.
+            Published at LREC 2026 and arXiv.
+          </div> -->
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jan 2024 – Aug 2024</div>
+        <div>
+          <div class="exp-role">Research Scholar (Ph.D.)</div>
+          <div class="exp-org">Laboratory for Computational Social Systems (LCS2), IIIT-Delhi</div>
+          <!-- <div class="exp-desc">
+            Conducting doctoral research in NLP under Dr. Md. Shad Akhtar. Focus areas include
+            fine-grained narrative classification, deception detection in testimonies, and bias
+            analysis in news media. Introduced the INDI-PROP dataset and the INTEND framework.
+            Published at LREC 2026 and arXiv.
+          </div> -->
+        </div>
+      </div>     
+
+
+
+
+
+
+      <h3 class="exp-section-heading">Research internships</h3>
+
+      <div class="exp-item">
+        <div class="exp-date">May 2023 - Nov 2023</div>
+        <div>
+          <div class="exp-role">Research Assistant (RA)</div>
+          <div class="exp-org">CSTAR Lab, International Institute of Information Technology Hyderabad (IIITH)</div>
+          <div class="exp-desc">
+            Worked in the feild of eXplainable Artificial Intelligence (XAI). 
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Nov 2021 - Jun 2022</div>
+        <div>
+          <div class="exp-role">Research And Development Intern</div>
+          <div class="exp-org">Scientech Technologies Pvt. Ltd.</div>
+          <!-- <div class="exp-desc">
+            Conducting doctoral research in NLP under Dr. Md. Shad Akhtar. Focus areas include
+            fine-grained narrative classification, deception detection in testimonies, and bias
+            analysis in news media. Introduced the INDI-PROP dataset and the INTEND framework.
+            Published at LREC 2026 and arXiv.
+          </div> -->
+        </div>
+      </div>     
+
+      <div class="exp-item">
+        <div class="exp-date">Dec 2019 - Jun 2020</div>
+        <div>
+          <div class="exp-role">Intern</div>
+          <div class="exp-org">CSIR-Central Scientific Instruments Organisation </div>
+          <!-- <div class="exp-desc">
+            Conducting doctoral research in NLP under Dr. Md. Shad Akhtar. Focus areas include
+            fine-grained narrative classification, deception detection in testimonies, and bias
+            analysis in news media. Introduced the INDI-PROP dataset and the INTEND framework.
+            Published at LREC 2026 and arXiv.
+          </div> -->
+        </div>
+      </div>   
+
+      <div class="exp-item">
+        <div class="exp-date">Jun 2018 - Sep 2018</div>
+        <div>
+          <div class="exp-role">Intern</div>
+          <div class="exp-org">National Institute of Electronics & Information Technology (NIELIT)</div>
+          <!-- <div class="exp-desc">
+            Conducting doctoral research in NLP under Dr. Md. Shad Akhtar. Focus areas include
+            fine-grained narrative classification, deception detection in testimonies, and bias
+            analysis in news media. Introduced the INDI-PROP dataset and the INTEND framework.
+            Published at LREC 2026 and arXiv.
+          </div> -->
+        </div>
+      </div>        
+
+
+
+
+      <h3 class="exp-section-heading">Teaching &amp; Mentoring</h3>
+
+      <div class="exp-item">
+        <div class="exp-date">Aug 2025 – Dec 2025</div>
+        <div>
+          <div class="exp-role">Teaching Assistant</div>
+          <div class="exp-org">Indraprastha Institute of Information Technology Delhi</div>
+          <div class="exp-desc">
+
+            
+            worked as a Teaching Assistant for Machine learning-Sec B [CSE543/ECE563/ CSE343/ECE363] during Monsoon 2025 as part of doctoral responsibilities at IIIT-Delhi.
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jan 2025 – May 2025</div>
+        <div>
+          <div class="exp-role">Head Teaching Assistant</div>
+          <div class="exp-org">Indraprastha Institute of Information Technology Delhi</div>
+          <div class="exp-desc">
+            worked as a Teaching Assistant for Natural Language Processing [CSE556] during Winter Semester 2024 as part of doctoral responsibilities at IIIT-Delhi.
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">2022 – Present</div>
+        <div>
+          <div class="exp-role">Teaching Assistant</div>
+          <div class="exp-org">CHANDIGARH UNIVERSITY </div>
+          <div class="exp-desc">
+            Assisted in course delivery and student support with IBM colaboration.
+          </div>
+        </div>
+      </div>
+
+
+
+      
+      
+      <!-- <p style="font-size:0.78rem; color:var(--muted); margin-top:1.5rem; font-family:'Source Code Pro',monospace;">
+        * Please add your internships, industry roles, and any other experiences here.
+      </p> -->
+
+      <div class="page-footer">
+        © 2025 Zeba Afroz &nbsp;·&nbsp; FLaMe Research Lab, IIIT-Delhi
+      </div>
+    </section>
+
+    <!-- ── EDUCATION ── -->
+    <section class="page" id="page-education">
+      <h1 class="page-title">Education</h1>
+      <p class="page-subtitle">Academic background and qualifications.</p>
+
+      <div class="edu-item">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-degree-name">Ph.D. in Computer Science &amp; Engineering</div>
+          <div class="edu-school-name">Indraprastha Institute of Information Technology Delhi (IIIT-Delhi)</div>
+          <div class="edu-year-text">2023 – Present &nbsp;·&nbsp; Supervisor: Dr. Md. Shad Akhtar</div>
+          <div class="edu-desc">
+            Doctoral research at the FLaMe Research Lab on Infromation Disorder (Malinformation) in NLP(Computational Social Science).
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-icon">📘</div>
+        <div>
+          <div class="edu-degree-name">M.Tech, Artificial Intelligence</div>
+          <div class="edu-school-name">J.C. Bose University of Science and Technology, YMCA — Faridabad</div>
+          <div class="edu-year-text">2020 – 2022</div>
+          <div class="edu-desc">
+            Postgraduate specialisation in computer science and engineering with focus on applied computing.
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-icon">📗</div>
+        <div>
+          <div class="edu-degree-name">BTech, Electronics &amp; Communications Engineering</div>
+          <div class="edu-school-name">Punjab Technical University — New Delhi</div>
+          <div class="edu-year-text">2016 – 2020</div>
+          <div class="edu-desc">
+            Undergraduate degree in Electronics & Communications Engineering. Built a strong foundation in
+            algorithms, data structures, systems programming, and software engineering.
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        © 2025 Zeba Afroz &nbsp;·&nbsp; FLaMe Research Lab, IIIT-Delhi
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section class="page" id="page-contact">
+      <h1 class="page-title">Contact</h1>
+      <p class="contact-intro">
+        I am always interested in meaningful collaborations in the areas of NLP, misinformation
+        and bias in media, computational social science, and responsible AI. Feel free to reach out
+        if you'd like to discuss research ideas or potential collaborations.
+        <br/><br/>
+        Currently based at <strong>IIIT-Delhi, New Delhi, India</strong>.
+      </p>
+
+      <div class="contact-cards">
+        <a href="https://www.linkedin.com/in/zeba-afroz-676390186/" class="contact-card" target="_blank">
+          <div class="contact-card-icon">💼</div>
+          <div>
+            <div class="contact-card-label">LinkedIn</div>
+            <div class="contact-card-sub">Connect professionally</div>
+          </div>
+        </a>
+        <a href="https://scholar.google.com/citations?user=GfklhrYAAAAJ&hl=en" class="contact-card" target="_blank">
+          <div class="contact-card-icon">📄</div>
+          <div>
+            <div class="contact-card-label">Google Scholar</div>
+            <div class="contact-card-sub">View papers</div>
+          </div>
+        </a>
+        <a href="https://flamelab.iiitd.edu.in/" class="contact-card" target="_blank">
+          <div class="contact-card-icon">🔬</div>
+          <div>
+            <div class="contact-card-label">FLaMe Lab</div>
+            <div class="contact-card-sub">Research group</div>
+          </div>
+        </a>
+        <a href="mailto:zebaa@iiitd.ac.in" class="contact-card">
+          <div class="contact-card-icon">✉️</div>
+          <div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-sub">zebaa@iiitd.ac.in</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="page-footer">
+        © 2025 Zeba Afroz &nbsp;·&nbsp; FLaMe Research Lab, IIIT-Delhi
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var navLinks = document.querySelectorAll('.sidebar-nav a[data-page]');
+      var pages    = document.querySelectorAll('.page');
+
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = link.getAttribute('data-page');
+
+          // hide all pages, deactivate all links
+          pages.forEach(function (p) { p.classList.remove('active'); });
+          navLinks.forEach(function (l) { l.classList.remove('active'); });
+
+          // show target page and mark link active
+          var targetPage = document.getElementById('page-' + target);
+          if (targetPage) targetPage.classList.add('active');
+          link.classList.add('active');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
