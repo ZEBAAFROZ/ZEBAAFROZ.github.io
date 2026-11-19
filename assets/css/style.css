@@ -1,0 +1,205 @@
+/* ==========================================================================
+   Zeba Afroz — personal academic website
+   Plain HTML/CSS, no build step. Colors live in the tokens below.
+   ========================================================================== */
+
+:root {
+  --bg: #ffffff;
+  --text: #1f2328;
+  --muted: #5f6670;
+  --faint: #9aa0a8;
+  --line: #e6e6e6;
+  --card: #ffffff;
+  --accent: #a0307f;          /* links, active nav, highlights */
+  --accent-soft: #f7e9f3;
+  --badge-text: #ffffff;
+  --footer-bg: #1c1c1d;
+  --footer-text: #c9c9c9;
+  --shadow: 0 2px 6px rgba(0, 0, 0, .06), 0 8px 24px rgba(0, 0, 0, .04);
+  --max: 900px;
+}
+
+:root[data-theme="dark"] {
+  --bg: #1c1c1d;
+  --text: #e6e6e6;
+  --muted: #b0b3b8;
+  --faint: #7c8087;
+  --line: #34353a;
+  --card: #232427;
+  --accent: #e07ac4;
+  --accent-soft: #3a2534;
+  --footer-bg: #121213;
+  --footer-text: #9a9a9a;
+  --shadow: none;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 300 17px/1.65 "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background .2s, color .2s;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+strong, b { font-weight: 500; }
+h1, h2, h3 { font-weight: 300; line-height: 1.2; margin: 0; }
+
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+main { flex: 1; padding: 48px 0 64px; }
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.navbar .container { display: flex; align-items: center; justify-content: space-between; height: 58px; gap: 16px; }
+.brand { color: var(--text); font-size: 1.25rem; white-space: nowrap; }
+.brand b { font-weight: 700; }
+.brand:hover { text-decoration: none; }
+
+.nav-links { display: flex; align-items: center; gap: 22px; list-style: none; margin: 0; padding: 0; }
+.nav-links a { color: var(--text); font-weight: 400; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+
+.icon-btn {
+  background: none; border: 0; padding: 4px; cursor: pointer; color: var(--text);
+  display: inline-grid; place-items: center;
+}
+.icon-btn:hover { color: var(--accent); }
+.icon-btn svg { width: 20px; height: 20px; fill: currentColor; }
+.menu-btn { display: none; }
+
+/* ---------- Page headings ---------- */
+.page-title { font-size: 2.6rem; margin-bottom: 6px; }
+.page-desc { color: var(--muted); font-size: .95rem; margin: 0 0 32px; }
+.section-title { font-size: 1.9rem; margin: 48px 0 18px; }
+
+/* ---------- About ---------- */
+.about-name { font-size: 3rem; }
+.about-name b { font-weight: 700; }
+.about-subtitle { margin: 8px 0 28px; font-size: 1rem; }
+
+.profile { float: right; width: 260px; margin: 0 0 20px 32px; text-align: left; }
+.profile img, .avatar {
+  width: 100%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow);
+}
+.avatar {
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--accent), #3b4c8c);
+  color: #fff; font-size: 4.5rem; font-weight: 300; letter-spacing: .04em;
+}
+.profile-info { margin-top: 16px; font-family: "Roboto Mono", ui-monospace, monospace; font-size: .85rem; line-height: 1.6; color: var(--text); }
+.profile-info p { margin: 0; }
+
+.bio p { margin: 0 0 16px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ---------- News ---------- */
+.news { width: 100%; border-collapse: collapse; }
+.news td { padding: 8px 0; vertical-align: top; }
+.news td.date { width: 150px; font-weight: 500; white-space: nowrap; padding-right: 20px; }
+
+/* ---------- Publications ---------- */
+.year-group { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; }
+.year-label { text-align: right; font-size: 2.2rem; color: var(--line); font-weight: 300; margin-bottom: 10px; }
+:root[data-theme="dark"] .year-label { color: #4a4b50; }
+
+.pubs { list-style: none; margin: 0; padding: 0; }
+.pub { display: grid; grid-template-columns: 130px 1fr; gap: 24px; padding: 14px 0 22px; }
+.badge {
+  display: block; text-align: center; font-size: .78rem; font-weight: 700; color: var(--badge-text);
+  padding: 2px 6px; border-radius: 3px; margin-top: 4px;
+}
+.badge.lrec { background: #0f6b5c; }
+.badge.arxiv { background: #b31b1b; }
+
+.pub-title { font-weight: 400; }
+.pub-authors { font-size: .97rem; }
+.pub-authors .me { border-bottom: 1px solid currentColor; font-weight: 400; }
+.pub-venue { font-style: italic; font-size: .97rem; }
+
+.pub-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.btn {
+  font: 400 .75rem/1 "Roboto", sans-serif; text-transform: uppercase; letter-spacing: .03em;
+  color: var(--text); background: transparent; border: 1px solid var(--text); border-radius: 3px;
+  padding: 6px 12px; cursor: pointer;
+}
+.btn:hover, .btn[aria-expanded="true"] { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+.pub-panel { display: none; margin-top: 12px; font-size: .92rem; }
+.pub-panel.open { display: block; }
+.pub-panel.abstract { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; color: var(--muted); }
+.pub-panel pre {
+  margin: 0; padding: 14px; overflow-x: auto; background: var(--accent-soft); border-radius: 6px;
+  font: .8rem/1.5 "Roboto Mono", ui-monospace, monospace; color: var(--text); white-space: pre;
+}
+
+/* ---------- Social ---------- */
+.social { text-align: center; margin-top: 56px; }
+.social-icons { display: flex; justify-content: center; gap: 28px; }
+.social-icons a { color: var(--text); }
+.social-icons a:hover { color: var(--accent); }
+.social-icons svg { width: 40px; height: 40px; fill: currentColor; }
+.contact-note { margin-top: 14px; font-size: .9rem; color: var(--muted); }
+
+/* ---------- CV ---------- */
+.cv-actions { margin: -16px 0 28px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow); padding: 22px 26px; margin-bottom: 22px; }
+.card h2 { font-size: 1.7rem; margin-bottom: 18px; }
+.cv-item { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 10px 0; }
+.cv-item + .cv-item { border-top: 1px dashed var(--line); }
+.cv-date {
+  justify-self: start; align-self: start;
+  background: var(--accent); color: #fff; font-size: .75rem; font-weight: 700;
+  padding: 2px 8px; border-radius: 3px; white-space: nowrap; margin-top: 3px;
+}
+:root[data-theme="dark"] .cv-date { color: #1c1c1d; }
+.cv-where { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+.cv-role { font-weight: 500; }
+.cv-org { color: var(--text); }
+.cv-desc { color: var(--muted); font-size: .93rem; font-style: italic; }
+.cv-sub { font-size: .8rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin: 18px 0 4px; }
+.cv-sub:first-of-type { margin-top: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--accent-soft); color: var(--accent); padding: 4px 12px; border-radius: 999px; font-size: .88rem; font-weight: 400; }
+
+/* ---------- Footer ---------- */
+footer { background: var(--footer-bg); color: var(--footer-text); font-size: .82rem; text-align: center; padding: 14px 0; }
+footer a { color: #fff; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  body { font-size: 16px; }
+  .menu-btn { display: inline-grid; }
+  .nav-links {
+    display: none; position: absolute; top: 58px; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 0;
+    background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px 20px 14px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 8px 0; }
+
+  .about-name { font-size: 2.3rem; }
+  .profile { float: none; width: 100%; margin: 0 0 24px; display: flex; gap: 18px; align-items: center; }
+  .profile img, .avatar { width: 110px; flex: none; font-size: 2.2rem; }
+  .profile-info { margin-top: 0; }
+
+  .news td { display: block; padding: 2px 0; }
+  .news tr { display: block; padding: 8px 0; }
+  .pub, .cv-item { grid-template-columns: 1fr; gap: 8px; }
+  .badge { display: inline-block; width: auto; padding: 2px 10px; }
+  .card { padding: 18px; }
+  .page-title { font-size: 2.1rem; }
+}

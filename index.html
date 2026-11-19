@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zeba Afroz</title>
+  <meta name="description" content="Zeba Afroz — Ph.D. Research Scholar at FLaMe Lab, IIIT-Delhi, working on NLP, computational social science, and bias and narratives in news media." />
+  <meta name="author" content="Zeba Afroz" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;family=Roboto+Mono:wght@400&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script>
+    // apply saved / system theme before first paint
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <div class="social-icons" style="gap:14px"><a href="mailto:zebaa@iiitd.ac.in" title="Email"><svg style="width:22px;height:22px" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.3.5L12 11.4 19.7 6H4.3ZM20 7.6l-7.4 5.2a1 1 0 0 1-1.2 0L4 7.6V18h16V7.6Z"/></svg></a><a href="https://scholar.google.com/citations?user=GfklhrYAAAAJ&amp;hl=en" title="Google Scholar" target="_blank" rel="noopener"><svg style="width:22px;height:22px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 9l3.7 2.4A6.9 6.9 0 0 0 5 17a7 7 0 0 0 14 0c0-2-.8-3.9-2.2-5.2L23 9 12 2Zm0 10a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/></svg></a><a href="https://github.com/ZEBAAFROZ" title="GitHub" target="_blank" rel="noopener"><svg style="width:22px;height:22px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.6.4-1.1.7-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg></a><a href="https://www.linkedin.com/in/zeba-afroz-676390186/" title="LinkedIn" target="_blank" rel="noopener"><svg style="width:22px;height:22px" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2ZM8 19H5V9.5h3V19ZM6.5 8.2a1.7 1.7 0 1 1 0-3.5 1.7 1.7 0 0 1 0 3.5ZM19 19h-3v-4.6c0-1.1 0-2.5-1.5-2.5S12.7 13 12.7 14.3V19h-3V9.5h2.8v1.3h.1a3.1 3.1 0 0 1 2.8-1.5c3 0 3.6 2 3.6 4.6V19Z"/></svg></a></div>
+      <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active" aria-current="page">about</a></li>
+        <li><a href="publications.html">publications</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><button class="icon-btn" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18V4a8 8 0 0 1 0 16Z"/></svg></button></li>
+      </ul>
+      </nav>
+      <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <h1 class="about-name"><b>Zeba</b> Afroz</h1>
+      <p class="about-subtitle">Ph.D. Research Scholar · <a href="https://flamelab.iiitd.edu.in/" target="_blank" rel="noopener">FLaMe Lab</a>, <a href="https://www.iiitd.ac.in/" target="_blank" rel="noopener">IIIT-Delhi</a></p>
+
+      <div class="clearfix">
+        <aside class="profile">
+          <!-- To use a photo: save it as assets/img/profile.jpg and replace the next line with
+               <img src="assets/img/profile.jpg" alt="Zeba Afroz" /> -->
+          <div class="avatar" aria-hidden="true">ZA</div>
+          <div class="profile-info">
+            <p>FLaMe Research Lab</p>
+            <p>IIIT-Delhi, Okhla Phase III</p>
+            <p>New Delhi, India</p>
+          </div>
+        </aside>
+
+        <div class="bio">
+          <p>Hello! I am Zeba Afroz, a Ph.D. Research Scholar at the <a href="https://flamelab.iiitd.edu.in/" target="_blank" rel="noopener">FLaMe Research Lab</a> at <a href="https://www.iiitd.ac.in/" target="_blank" rel="noopener">IIIT-Delhi</a>, India, supervised by <a href="https://faculty.iiitd.ac.in/~shad.akhtar/" target="_blank" rel="noopener">Dr. Md. Shad Akhtar</a>. My research lies at the intersection of <strong>Natural Language Processing (NLP)</strong>, computational journalism, and social computing.</p>
+          <p>My work focuses on understanding how language is used to shape narratives — whether through ideological framing in news media, incongruences in eyewitness accounts, or figurative expression in online content. I am particularly interested in building robust AI systems that can reason about <strong>bias, deception, and narrative intent</strong> in real-world text.</p>
+          <p>I completed my M.Tech. in Artificial Intelligence at <a href="https://jcboseust.ac.in/" target="_blank" rel="noopener">J.C. Bose University of Science and Technology, YMCA</a> and my B.Tech. at <a href="https://ptu.ac.in/" target="_blank" rel="noopener">Punjab Technical University</a>.</p>
+          <p>I am always open to collaborations in NLP and computational social science — feel free to reach out if you'd like to discuss research ideas.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">news</h2>
+      <table class="news">
+        <tr>
+          <td class="date">Jan 2026</td>
+          <td>Our paper <a href="https://arxiv.org/abs/2512.03582" target="_blank" rel="noopener"><em>Fine-grained Narrative Classification in Biased News Articles</em></a> has been accepted at <strong>LREC 2026</strong>! 🎉</td>
+        </tr>
+        <tr>
+          <td class="date">Feb 2025</td>
+          <td>New preprint on <a href="https://arxiv.org/abs/2502.05650" target="_blank" rel="noopener"><em>Incongruence Identification in Eyewitness Testimony</em></a> is now available on arXiv.</td>
+        </tr>
+      </table>
+
+      <h2 class="section-title">selected publications</h2>
+      <ol class="pubs">
+        <li class="pub">
+          <div><span class="badge lrec">LREC</span></div>
+          <div>
+            <div class="pub-title">Fine-grained Narrative Classification in Biased News Articles</div>
+            <div class="pub-authors"><span class="me">Zeba Afroz</span>, Harsh Vardhan, Pawan Bhakuni, Aanchal Punia, Rajdeep Kumar, and <a href="https://faculty.iiitd.ac.in/~shad.akhtar/" target="_blank" rel="noopener">Md. Shad Akhtar</a></div>
+            <div class="pub-venue">Proceedings of the Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC), 2026</div>
+            <div class="pub-buttons">
+              <button class="btn" data-toggle="abstract">Abs</button>
+              <a class="btn" href="https://arxiv.org/abs/2512.03582" target="_blank" rel="noopener">arXiv</a>
+              <button class="btn" data-toggle="bibtex">Bib</button>
+              <a class="btn" href="https://arxiv.org/pdf/2512.03582" target="_blank" rel="noopener">PDF</a>
+            </div>
+            <div class="pub-panel abstract">We propose a fine-grained narrative classification framework for biased news articles, with article-bias classification as a precursor task alongside fine-grained persuasive technique identification. We introduce <em>INDI-PROP</em>, the first ideologically grounded fine-grained narrative dataset with multi-level annotation for propaganda in Indian news, covering 1,266 articles across two polarizing socio-political events (CAA and the Farmers' protest), annotated at three hierarchical levels.</div>
+            <div class="pub-panel bibtex"><pre>@inproceedings{afroz2026narrative,
+  title     = {Fine-grained Narrative Classification in Biased News Articles},
+  author    = {Afroz, Zeba and Vardhan, Harsh and Bhakuni, Pawan and Punia, Aanchal and Kumar, Rajdeep and Akhtar, Md. Shad},
+  booktitle = {Proceedings of the Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC)},
+  year      = {2026}
+}</pre></div>
+          </div>
+        </li>
+        <li class="pub">
+          <div><span class="badge arxiv">arXiv</span></div>
+          <div>
+            <div class="pub-title">Incongruence Identification in Eyewitness Testimony</div>
+            <div class="pub-authors">Akshara Nair, <span class="me">Zeba Afroz</span>, and <a href="https://faculty.iiitd.ac.in/~shad.akhtar/" target="_blank" rel="noopener">Md. Shad Akhtar</a></div>
+            <div class="pub-venue">arXiv preprint arXiv:2502.05650, 2025</div>
+            <div class="pub-buttons">
+              <button class="btn" data-toggle="abstract">Abs</button>
+              <a class="btn" href="https://arxiv.org/abs/2502.05650" target="_blank" rel="noopener">arXiv</a>
+              <button class="btn" data-toggle="bibtex">Bib</button>
+              <a class="btn" href="https://arxiv.org/pdf/2502.05650" target="_blank" rel="noopener">PDF</a>
+            </div>
+            <div class="pub-panel abstract">We introduce the task of detecting incongruences between eyewitness testimonies. Given Q&amp;A exchange pairs from two subjects, the system identifies contextually related inconsistencies and marks their spans. We introduce <em>MIND</em> (MultI-EyewitNess Deception), a dataset of 2,927 contextually related answer pairs, and the <em>INTEND</em> framework, grounded in investigative 6W and multi-hop reasoning.</div>
+            <div class="pub-panel bibtex"><pre>@article{nair2025incongruence,
+  title   = {Incongruence Identification in Eyewitness Testimony},
+  author  = {Nair, Akshara and Afroz, Zeba and Akhtar, Md. Shad},
+  journal = {arXiv preprint arXiv:2502.05650},
+  year    = {2025}
+}</pre></div>
+          </div>
+        </li>
+      </ol>
+
+      <div class="social">
+        <div class="social-icons">
+          <a href="mailto:zebaa@iiitd.ac.in" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.3.5L12 11.4 19.7 6H4.3ZM20 7.6l-7.4 5.2a1 1 0 0 1-1.2 0L4 7.6V18h16V7.6Z"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=GfklhrYAAAAJ&amp;hl=en" title="Google Scholar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 9l3.7 2.4A6.9 6.9 0 0 0 5 17a7 7 0 0 0 14 0c0-2-.8-3.9-2.2-5.2L23 9 12 2Zm0 10a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/></svg></a>
+          <a href="https://github.com/ZEBAAFROZ" title="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.6.4-1.1.7-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg></a>
+          <a href="https://www.linkedin.com/in/zeba-afroz-676390186/" title="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2ZM8 19H5V9.5h3V19ZM6.5 8.2a1.7 1.7 0 1 1 0-3.5 1.7 1.7 0 0 1 0 3.5ZM19 19h-3v-4.6c0-1.1 0-2.5-1.5-2.5S12.7 13 12.7 14.3V19h-3V9.5h2.8v1.3h.1a3.1 3.1 0 0 1 2.8-1.5c3 0 3.6 2 3.6 4.6V19Z"/></svg></a>
+        </div>
+        <p class="contact-note">Email is the best way to reach me — I'm always happy to discuss research collaborations.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year">2026</span> Zeba Afroz · FLaMe Research Lab, IIIT-Delhi · Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

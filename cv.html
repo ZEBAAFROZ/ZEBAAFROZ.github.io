@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV | Zeba Afroz</title>
+  <meta name="description" content="CV of Zeba Afroz." />
+  <meta name="author" content="Zeba Afroz" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;family=Roboto+Mono:wght@400&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script>
+    // apply saved / system theme before first paint
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a class="brand" href="index.html"><b>Zeba</b> Afroz</a>
+      <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">about</a></li>
+        <li><a href="publications.html">publications</a></li>
+        <li><a href="cv.html" class="active" aria-current="page">CV</a></li>
+        <li><button class="icon-btn" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18V4a8 8 0 0 1 0 16Z"/></svg></button></li>
+      </ul>
+      </nav>
+      <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">CV</h1>
+      <p class="page-desc">Education, research experience, teaching, and publications.</p>
+      <!-- To offer a PDF: put it at assets/pdf/cv.pdf and uncomment:
+      <p class="cv-actions"><a class="btn" href="assets/pdf/cv.pdf" target="_blank">Download PDF</a></p> -->
+
+      <section class="card">
+        <h2>Education</h2>
+          <div class="cv-item">
+            <div><span class="cv-date">2023 – Present</span>
+              <div class="cv-where">📍 New Delhi</div></div>
+            <div>
+              <div class="cv-role">Ph.D., Computer Science &amp; Engineering</div>
+              <div class="cv-org">Indraprastha Institute of Information Technology Delhi (IIIT-Delhi)</div>
+              <div class="cv-desc">Supervisor: Dr. Md. Shad Akhtar. Research on information disorder (malinformation) in NLP and computational social science.</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">2020 – 2022</span>
+              <div class="cv-where">📍 Faridabad</div></div>
+            <div>
+              <div class="cv-role">M.Tech., Artificial Intelligence</div>
+              <div class="cv-org">J.C. Bose University of Science and Technology, YMCA</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">2016 – 2020</span>
+              <div class="cv-where">📍 New Delhi</div></div>
+            <div>
+              <div class="cv-role">B.Tech., Electronics &amp; Communication Engineering</div>
+              <div class="cv-org">Punjab Technical University</div>
+            </div>
+          </div>
+      </section>
+
+      <section class="card">
+        <h2>Experience</h2>
+        <div class="cv-sub">Research</div>
+          <div class="cv-item">
+            <div><span class="cv-date">Sep 2024 – Present</span>
+              <div class="cv-where">📍 New Delhi</div></div>
+            <div>
+              <div class="cv-role">Research Scholar (Ph.D.)</div>
+              <div class="cv-org">FLaMe Research Lab, IIIT-Delhi</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">Jan 2024 – Aug 2024</span>
+              <div class="cv-where">📍 New Delhi</div></div>
+            <div>
+              <div class="cv-role">Research Scholar (Ph.D.)</div>
+              <div class="cv-org">Laboratory for Computational Social Systems (LCS2), IIIT-Delhi</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">May 2023 – Nov 2023</span>
+              <div class="cv-where">📍 Hyderabad</div></div>
+            <div>
+              <div class="cv-role">Research Assistant</div>
+              <div class="cv-org">CSTAR Lab, IIIT Hyderabad</div>
+              <div class="cv-desc">Worked in the field of Explainable Artificial Intelligence (XAI).</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">Nov 2021 – Jun 2022</span></div>
+            <div>
+              <div class="cv-role">Research &amp; Development Intern</div>
+              <div class="cv-org">Scientech Technologies Pvt. Ltd.</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">Dec 2019 – Jun 2020</span></div>
+            <div>
+              <div class="cv-role">Intern</div>
+              <div class="cv-org">CSIR – Central Scientific Instruments Organisation</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">Jun 2018 – Sep 2018</span></div>
+            <div>
+              <div class="cv-role">Intern</div>
+              <div class="cv-org">National Institute of Electronics &amp; Information Technology (NIELIT)</div>
+            </div>
+          </div>
+        <div class="cv-sub">Teaching</div>
+          <div class="cv-item">
+            <div><span class="cv-date">Aug 2025 – Dec 2025</span>
+              <div class="cv-where">📍 New Delhi</div></div>
+            <div>
+              <div class="cv-role">Teaching Assistant</div>
+              <div class="cv-org">IIIT-Delhi</div>
+              <div class="cv-desc">Machine Learning, Section B (CSE543 / ECE563 / CSE343 / ECE363), Monsoon 2025.</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">Jan 2025 – May 2025</span>
+              <div class="cv-where">📍 New Delhi</div></div>
+            <div>
+              <div class="cv-role">Head Teaching Assistant</div>
+              <div class="cv-org">IIIT-Delhi</div>
+              <div class="cv-desc">Natural Language Processing (CSE556), Winter 2025.</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">2022 – 2023</span></div>
+            <div>
+              <div class="cv-role">Teaching Assistant</div>
+              <div class="cv-org">Chandigarh University</div>
+              <div class="cv-desc">Assisted in course delivery and student support in collaboration with IBM.</div>
+            </div>
+          </div>
+      </section>
+
+      <section class="card">
+        <h2>Publications</h2>
+          <div class="cv-item">
+            <div><span class="cv-date">2026</span></div>
+            <div>
+              <div class="cv-role"><a href="https://arxiv.org/abs/2512.03582" target="_blank" rel="noopener">Fine-grained Narrative Classification in Biased News Articles</a></div>
+              <div class="cv-org">LREC 2026</div>
+            </div>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-date">2025</span></div>
+            <div>
+              <div class="cv-role"><a href="https://arxiv.org/abs/2502.05650" target="_blank" rel="noopener">Incongruence Identification in Eyewitness Testimony</a></div>
+              <div class="cv-org">arXiv preprint</div>
+            </div>
+          </div>
+      </section>
+
+      <section class="card">
+        <h2>Research Interests</h2>
+        <div class="chips">
+          <span class="chip">Natural Language Processing</span>
+          <span class="chip">Computational Social Science</span>
+          <span class="chip">Media Bias &amp; Propaganda</span>
+          <span class="chip">Deception Detection</span>
+          <span class="chip">Responsible AI</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year">2026</span> Zeba Afroz · FLaMe Research Lab, IIIT-Delhi · Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
