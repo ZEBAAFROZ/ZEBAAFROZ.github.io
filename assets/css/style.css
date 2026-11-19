@@ -123,6 +123,8 @@ main { flex: 1; padding: 48px 0 64px; }
 }
 .badge.lrec { background: #0f6b5c; }
 .badge.arxiv { background: #b31b1b; }
+.badge.eacl { background: #2c4f9c; }
+.badge.ieee { background: #00629b; }
 
 .pub-title { font-weight: 400; }
 .pub-authors { font-size: .97rem; }
@@ -171,6 +173,11 @@ main { flex: 1; padding: 48px 0 64px; }
 .cv-desc { color: var(--muted); font-size: .93rem; font-style: italic; }
 .cv-sub { font-size: .8rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin: 18px 0 4px; }
 .cv-sub:first-of-type { margin-top: 0; }
+.cv-bullets { margin: 6px 0 0; padding-left: 1.2em; font-size: .93rem; color: var(--muted); }
+.cv-bullets li { margin-bottom: 3px; }
+.skills { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.skills th { text-align: left; font-weight: 500; white-space: nowrap; padding: 6px 24px 6px 0; vertical-align: top; width: 1%; }
+.skills td { padding: 6px 0; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { background: var(--accent-soft); color: var(--accent); padding: 4px 12px; border-radius: 999px; font-size: .88rem; font-weight: 400; }
 
